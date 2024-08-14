@@ -9,19 +9,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 多线程情况下：
- * 并发对ArrayList进行add，会出现数据丢失或扩容时的ArrayIndexOutOfBoundsException
+ * 并发对ArrayList进行add，会出现数据丢失或扩容时的ArrayIndexOutOfBoundsException。
+ * CopyOnWriteArrayList不适合写操作多的情况。
  * 并发对HashMap进行put，会出现数据丢失的情况，也可能程序卡死
  */
 public class CollectionConcurrentTest {
 
     public static void main(String[] args) throws InterruptedException {
-//        ArrayListConcurrentAdd();
-//        COWArrayListConcurrentAdd();
-//        ConcurrentHashMapConcurrentPut();
-//        AtomicIntegerConcurrent();
-        for (int i = 0; i < 1000; i++) {
-            HashMapConcurrentPut();
-        }
+        ArrayListConcurrentAdd();
+        COWArrayListConcurrentAdd();
+        HashMapConcurrentPut();
+        ConcurrentHashMapConcurrentPut();
+        AtomicIntegerConcurrent();
     }
 
     /**
