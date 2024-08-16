@@ -13,6 +13,18 @@ fun main() {
     // 字符范围
     for (c in 'a'..'g')
         println(c)
+    // break & continue
+    breakAndContinue()
+}
+
+fun breakAndContinue() {
+    // outer是自定义的，@是必须的
+    outer@for(i in 1..10) {
+        for (j in 10 downTo 1) {
+            println("$i, $j")
+            if (i == 2 && j == 3) break@outer
+        }
+    }
 }
 
 fun forGrammar(r: IntProgression) {
